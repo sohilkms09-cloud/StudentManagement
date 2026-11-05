@@ -29,4 +29,14 @@ def search_student(roll_no):
             return student
     print("Student not found.")
     return None
+ 
+ def delete_student(students, student_id):
+    for student in students:
+        if student["id"] == student_id:
+            students.remove(student)
+            print("Student deleted successfully")
+            return
+
+    print("Student not found")
+
 
