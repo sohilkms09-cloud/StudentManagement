@@ -1,36 +1,33 @@
-import student
+while True:
+    show()
 
-def show():
-    print("1. Add Student")
-    print("2. Display Student Details")
-    print("3. Search for a student")
+    try:
+        choice = int(input("Enter Choice: "))
+    except ValueError:
+        print("Please enter a valid number.")
+        continue
 
-def main():
-    print("Welcome to Student Management System")
+    if choice == 1:
+        roll_no = int(input("Enter Roll Number: "))
+        name = input("Enter Name: ")
+        department = input("Enter Department: ")
+        student.add_student(roll_no, name, department)
 
-    while True:
-        show()
-        try:
-            choice = int(input("Enter Choice (1/2/3): "))
-        except ValueError:
-            print("Please enter a valid number.")
-            continue
-            
-        if choice == 1:
-            print("Add a Student")
-            roll_no = int(input("Enter a roll number: "))
-            name = input("Enter a Name: ")
-            department = input("Enter a department: ")
-            student.add_student(roll_no, name, department)
-            
-        elif choice == 2:
-            student.display_students()  
-        elif choice == 3:
-            roll_no = int(input("Enter a roll number for search: "))
-            print(student.search_student(roll_no))
-            
-        else:
-            print("Invalid choice. Please enter 1, 2, or 3.")
+    elif choice == 2:
+        student.display_students()
 
-if __name__ == "__main__":
-    main()
+    elif choice == 3:
+        roll_no = int(input("Enter Roll Number to search: "))
+        student.search_student(roll_no)
+
+    elif choice == 4:
+        roll_no = int(input("Enter Roll Number to delete: "))
+        student.delete_student(roll_no)
+
+    elif choice == 5:
+        print("Thank you for using Student Management System!")
+        break
+
+    else:
+        print("Invalid choice. Please try again.")
+
