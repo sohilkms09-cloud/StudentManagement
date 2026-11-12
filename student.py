@@ -30,13 +30,14 @@ def search_student(roll_no):
     print("Student not found.")
     return None
  
- def delete_student(students, student_id):
+def update_student(roll_no, name, department):
     for student in students:
-        if student["id"] == student_id:
-            students.remove(student)
-            print("Student deleted successfully")
-            return
+        if student["roll_no"] == roll_no:
+            student["name"] = name
+            student["department"] = department
+            print("Student details updated successfully.")
+            return True
 
-    print("Student not found")
-
+    print("Student not found.")
+    return False
 
